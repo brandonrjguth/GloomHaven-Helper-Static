@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloomhaven Modifier Decks</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <h1>Gloomhaven Modifier Decks</h1>
+
+    <div class="controls-global">
+        <button id="add-player-btn" onclick="addPlayerDeck()">Add Player Deck</button>
+    <button id="reset-all-btn" onclick="resetAllDecks()">Reset All Decks</button>
+    </div>
+
+    <div class="controls-monster-ability">
+        <h2>Monster Ability Decks</h2>
+        <select id="monster-select">
+            <option value="">--Select a Monster--</option>
+            <% if (monsterTypes) { %>
+                <% monsterTypes.forEach(monster => { %>
+                    <option value="<%= monster %>"><%= monster %></option>
+                <% }); %>
+            <% } %>
+        </select>
+        <button id="add-monster-ability-deck-btn">Add Monster Ability Deck</button>
+    </div>
+
+    <div class="decks-container" id="decks-container">
+        <% /* Initial decks rendered server-side */ %>
+        <% Object.keys(decks).forEach(deckId => { %>
+            <%- include('partials/deck', { deckId: deckId, deckState: decks[deckId], cardBackImg: cardBackImg }) %>
+        <% }); %>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

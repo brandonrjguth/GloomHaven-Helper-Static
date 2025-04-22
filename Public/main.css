@@ -1,0 +1,197 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.controls-global {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.icon{
+    height:20px;
+}
+
+.controls-global button {
+     padding: 10px 15px;
+     font-size: 1.1em;
+     background-color: #28a745;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+}
+
+.controls-global button:hover {
+    background-color: #218838;
+}
+
+.controls-global button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.controls-monster-ability{
+    text-align: center;
+}
+
+.decks-container {
+    display: flex;
+    flex-wrap:wrap;
+    gap: 20px;
+    padding-top: 2rem;
+    justify-content: center;
+}
+
+.deck {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    width:20rem;
+    text-align: center;
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column;
+}
+
+.deck h2 {
+    margin-top: 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px; /* Added margin */
+}
+
+.deck-piles {
+    display: flex;
+    justify-content: center; /* Center the single combined pile */
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow piles to take up space */
+}
+
+/* Style for the new combined pile container */
+.combined-pile {
+    width: 90%; /* Take up most of the width */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack counters above card display */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Style for the container holding the draw/discard counts */
+.pile-counters {
+    display: flex;
+    justify-content: space-around; /* Space out the two counters */
+    width: 100%; /* Take full width of the combined-pile */
+    margin-bottom: 10px; /* Space between counters and card display */
+    align-items:center;
+}
+
+.pile-counters strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #444;
+}
+
+.card-display {
+    min-height: 140px; /* Adjust for card image aspect ratio */
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; /* Stack image and text */
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.8em; /* Smaller text for indicators */
+    color: #666;
+    width: 100%; /* Ensure card display takes available width */
+}
+
+.card-display span { /* Styling for 'None' or 'Empty' text */
+    font-style: italic;
+}
+
+/* Ensure the counters themselves don't take up too much space */
+.pile-counters strong {
+    font-size: 0.9em;
+    color: #444;
+    /* Removed display: block; */
+}
+
+.card-image {
+    width: 100%; /* Control image size within display */
+    height: 100%; /* Control image height */
+    display: block; /* Remove extra space below image */
+    margin-bottom: 5px; /* Space between image and indicator text */
+}
+
+.indicator-bless,
+.indicator-curse {
+    font-weight: bold;
+    font-size: 0.9em;
+    display: block; /* Put on new line */
+}
+.indicator-bless { color: #28a745; }
+.indicator-curse { color: #dc3545; }
+
+
+.status-indicators {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 5px;
+}
+
+.bless, .curse{
+    padding-right:0.5rem;
+}
+.curse{
+    padding-left: 0.5rem;
+}
+
+.controls {
+    margin-top: auto; /* Push controls to the bottom */
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 0.85em; /* Slightly smaller buttons */
+    width: calc(33.33% - 10px); /* Fit 3 buttons per row */
+    box-sizing: border-box;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for decks needing a shuffle */
+.deck.needs-shuffle {
+    border-color: orange;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
+
+.deck.needs-shuffle .card-display {
+    border-color: orange;
+    background-color: #fff8e1; /* Light orange background */
+}
