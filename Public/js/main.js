@@ -354,7 +354,7 @@ function createDeckHTML(deckId, deckState) {
                 <div class="pile combined-pile">
                     <div class="pile-counters">
                         <strong>Draw (<span id="draw-count-${deckId}">${deckState.drawPileCount}</span>)</strong>
-                        <button data-action="shuffle"><img class="icon" src="Public/imgs/icons/shuffle.png"></button>
+                        <button data-action="shuffle"><img class="icon" src="Public/imgs/icons/Shuffle.png"></button>
                         <strong>Discard (<span id="discard-count-${deckId}">${deckState.discardPileCount}</span>)</strong>
                     </div>
                     <div class="card-display" id="combined-card-display-${deckId}" data-action="draw">
