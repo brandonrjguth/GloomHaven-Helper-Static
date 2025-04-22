@@ -675,4 +675,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialMonsterDeckHTML = createDeckHTML(initialMonsterDeckId, decks[initialMonsterDeckId].getState());
     decksContainer.insertAdjacentHTML('beforeend', initialMonsterDeckHTML);
     updateDeckUI(initialMonsterDeckId, decks[initialMonsterDeckId].getState()); // Initial UI update
+
+    // Register service worker with proper scope
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(reg => {
+                console.log('Service worker registered with scope:', reg.scope);
+                
+                // Check for updates
+                reg.update().then(() => {
+                    console.log('Service worker updated');
+                }).catch(err => {
+                    console.log('Service worker update failed:', err);
+                });
+
+                // Track installation state
+                if (reg.installing) {
+                    console.log('Service worker installing');
+                } else if (reg.waiting) {
+                    console.log('Service worker installed');
+                } else if (reg.active) {
+                    console.log('Service worker active');
+                }
+            })
+            .catch(err => {
+                console.log('Service worker registration failed:', err);
+            });
+    }
 });

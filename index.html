@@ -13,7 +13,8 @@
 
     <div class="controls-global">
         <button id="add-player-btn">Add Player Deck</button>
-    <button id="reset-all-btn">Reset All Decks</button>
+        <button id="reset-all-btn">Reset All Decks</button>
+        <button id="install-btn" style="display:none;">Install App</button>
     </div>
 
     <div class="controls-monster-ability">
@@ -30,5 +31,30 @@
     </div>
 
     <script src="Public/js/main.js"></script>
+    <script>
+        let deferredPrompt;
+        const installBtn = document.getElementById('install-btn');
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted install');
+                    } else {
+                        console.log('User dismissed install');
+                    }
+                    deferredPrompt = null;
+                    installBtn.style.display = 'none';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
