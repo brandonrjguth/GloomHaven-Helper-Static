@@ -2,7 +2,7 @@
   "name": "Gloomhaven Modifier Decks",
   "short_name": "GH Decks",
   "description": "Gloomhaven modifier deck helper",
-  "start_url": "/",
+  "start_url": "/GloomHaven-Helper-Static/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4a148c",
