@@ -56,7 +56,7 @@ h1 {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    width:20rem;
+    width:17rem;
     text-align: center;
     display: flex; /* Use flexbox for internal layout */
     flex-direction: column;

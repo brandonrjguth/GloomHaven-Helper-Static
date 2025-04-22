@@ -263,8 +263,8 @@ const MONSTER_ABILITY_CARD_DATA = {
      },
      'monstrosity': {
          prefix: 'jl-ma-mo-',
-         cardBack: 'Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-mo-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-mo-${i + 1}.png`)
+         cardBack: 'Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-ms-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-ms-${i + 1}.png`)
      },
      'stone-golem': {
          prefix: 'jl-ma-sg-',
@@ -282,9 +282,9 @@ const MONSTER_ABILITY_CARD_DATA = {
          cards: Array.from({ length: 8 }, (_, i) => `Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-scout/jl-ma-vs-${i + 1}.png`)
      },
      'zealot': {
-         prefix: 'jl-ma-ze-',
-         cardBack: 'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-ze-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-ze-${i + 1}.png`)
+         prefix: 'jl-ma-zl-',
+         cardBack: 'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-zl-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-zl-${i + 1}.png`)
      },
     // Basic monster types with their specific cards
     'Basic giant-viper': {
@@ -299,12 +299,20 @@ const MONSTER_ABILITY_CARD_DATA = {
     'Basic vermling-raider': {
         cardBack: 'Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-vermling-raider-back.png', // Assuming a basic back exists
         cards: [
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-careful-throw.png',
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-dual-daggers.png',
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-nothing-special.png',
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-screaming-shot.png'
             // Add basic vermling raider card paths here if they exist and are needed
         ]
     },
      'Basic zealot': {
          cardBack: 'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-zealot-back.png', // Assuming a basic back exists
          cards: [
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-boil-blood.png',
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-drain-life.png',
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-hex-whip.png',
+            'Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-vile-scourge.png'
              // Add basic zealot card paths here if they exist and are needed
          ]
      }
@@ -318,8 +326,11 @@ const MONSTER_TYPES = Object.keys(MONSTER_ABILITY_CARD_DATA).sort();
 
 // Function to create the HTML for a single deck
 function createDeckHTML(deckId, deckState) {
-    const title = deckId.charAt(0).toUpperCase() + deckId.slice(1).replace(/-/g, ' '); // Capitalize first letter and replace hyphens
+    let title = deckId.charAt(0).toUpperCase() + deckId.slice(1).replace(/-/g, ' '); // Capitalize first letter and replace hyphens
     const isMonsterAbilityDeck = deckId.startsWith('monster-ability-');
+    const prefixToRemove = "Monster ability ";
+    title = title.replace(prefixToRemove, "");
+    title = title.charAt(0).toUpperCase()+ title.slice(1).replace(/-/g, ' ')
 
     // Determine initial image: card back if draw pile > 0, otherwise empty or a placeholder
     const initialImageHTML = deckState.drawPileCount > 0 ? `<img src="${deckState.cardBackImg}" alt="Deck" class="card-image">` : '<span>Empty</span>';
