@@ -4,15 +4,15 @@ const monsterSelect = document.getElementById('monster-select');
 const addMonsterAbilityDeckBtn = document.getElementById('add-monster-ability-deck-btn');
 
 // --- Card Definitions ---
-const CARD_BACK_IMG = 'https://github.com/brandonrjguth/Public/imgs/card-back.png'; // Relative to Public dir
+const CARD_BACK_IMG = 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/card-back.png'; // Relative to Public dir
 
-const PLAYER_BASE_CARDS = Array.from({ length: 20 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/player/gh-am-p1-${String(i + 1).padStart(2, '0')}.png`);
-const MONSTER_BASE_CARDS = Array.from({ length: 20 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster/gh-am-m-${String(i + 1).padStart(2, '0')}.png`);
+const PLAYER_BASE_CARDS = Array.from({ length: 20 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/player/gh-am-p1-${String(i + 1).padStart(2, '0')}.png`);
+const MONSTER_BASE_CARDS = Array.from({ length: 20 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster/gh-am-m-${String(i + 1).padStart(2, '0')}.png`);
 
-const PLAYER_BLESS_IMG = 'https://github.com/brandonrjguth/Public/imgs/player-mod/Blessing/gh-am-pm-11.png';
-const PLAYER_CURSE_IMG = 'https://github.com/brandonrjguth/Public/imgs/player-mod/Curse/gh-am-pm-01.png';
-const MONSTER_BLESS_IMG = 'https://github.com/brandonrjguth/Public/imgs/monster-mod/Blessing/gh-am-pm-01.png'; // As specified
-const MONSTER_CURSE_IMG = 'https://github.com/brandonrjguth/Public/imgs/monster-mod/Curse/gh-am-mm-01.png';
+const PLAYER_BLESS_IMG = 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/player-mod/Blessing/gh-am-pm-11.png';
+const PLAYER_CURSE_IMG = 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/player-mod/Curse/gh-am-pm-01.png';
+const MONSTER_BLESS_IMG = 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-mod/Blessing/gh-am-pm-01.png'; // As specified
+const MONSTER_CURSE_IMG = 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-mod/Curse/gh-am-mm-01.png';
 
 // --- Utility Functions ---
 function shuffleArray(array) {
@@ -228,82 +228,82 @@ let playerCount = 0; // Track player deck count
 const MONSTER_ABILITY_CARD_DATA = {
     'black-sludge': {
         prefix: 'jl-ma-bs-',
-        cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/black-sludge/jl-ma-bs-back.png',
-        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/black-sludge/jl-ma-bs-${i + 1}.png`)
+        cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/black-sludge/jl-ma-bs-back.png',
+        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/black-sludge/jl-ma-bs-${i + 1}.png`)
     },
     'boss': {
         prefix: 'jl-ma-bo-',
-        cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/boss/jl-ma-bo-back.png',
-        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/boss/jl-ma-bo-${i + 1}.png`)
+        cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/boss/jl-ma-bo-back.png',
+        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/boss/jl-ma-bo-${i + 1}.png`)
     },
     'chaos-demon': {
         prefix: 'jl-ma-cd-',
-        cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/chaos-demon/jl-ma-cd-back.png',
-        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/chaos-demon/jl-ma-cd-${i + 1}.png`)
+        cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/chaos-demon/jl-ma-cd-back.png',
+        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/chaos-demon/jl-ma-cd-${i + 1}.png`)
     },
     'giant-viper': {
         prefix: 'jl-ma-gv-',
-        cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-ma-gv-back.png',
-        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-ma-gv-${i + 1}.png`)
+        cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-ma-gv-back.png',
+        cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-ma-gv-${i + 1}.png`)
     },
      'imp': {
          prefix: 'jl-ma-im-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/imp/jl-ma-im-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/imp/jl-ma-im-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/imp/jl-ma-im-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/imp/jl-ma-im-${i + 1}.png`)
      },
      'living-corpse': {
          prefix: 'jl-ma-lc-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-corpse/jl-ma-lc-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-corpse/jl-ma-lc-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-corpse/jl-ma-lc-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-corpse/jl-ma-lc-${i + 1}.png`)
      },
      'living-spirit': {
          prefix: 'jl-ma-ls-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-spirit/jl-ma-ls-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-spirit/jl-ma-ls-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-spirit/jl-ma-ls-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/living-spirit/jl-ma-ls-${i + 1}.png`)
      },
      'monstrosity': {
          prefix: 'jl-ma-mo-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-mo-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-mo-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-mo-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/monstrosity/jl-ma-mo-${i + 1}.png`)
      },
      'stone-golem': {
          prefix: 'jl-ma-sg-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/stone-golem/jl-ma-sg-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/stone-golem/jl-ma-sg-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/stone-golem/jl-ma-sg-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/stone-golem/jl-ma-sg-${i + 1}.png`)
      },
      'vermling-raider': {
          prefix: 'jl-ma-vr-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-ma-vr-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-ma-vr-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-ma-vr-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-ma-vr-${i + 1}.png`)
      },
      'vermling-scout': {
          prefix: 'jl-ma-vs-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-scout/jl-ma-vs-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-scout/jl-ma-vs-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-scout/jl-ma-vs-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-scout/jl-ma-vs-${i + 1}.png`)
      },
      'zealot': {
          prefix: 'jl-ma-ze-',
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-ze-back.png',
-         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-ze-${i + 1}.png`)
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-ze-back.png',
+         cards: Array.from({ length: 8 }, (_, i) => `https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-ma-ze-${i + 1}.png`)
      },
     // Basic monster types with their specific cards
     'Basic giant-viper': {
-        cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-giant-viper-back.png',
+        cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-giant-viper-back.png',
         cards: [
-            'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-constrict.png',
-            'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-find-cover.png',
-            'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-swift-fangs.png',
-            'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-toxic-frenzy.png'
+            'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-constrict.png',
+            'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-find-cover.png',
+            'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-swift-fangs.png',
+            'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/giant-viper/jl-basic-toxic-frenzy.png'
         ]
     },
     'Basic vermling-raider': {
-        cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-vermling-raider-back.png', // Assuming a basic back exists
+        cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/vermling-raider/jl-basic-vermling-raider-back.png', // Assuming a basic back exists
         cards: [
             // Add basic vermling raider card paths here if they exist and are needed
         ]
     },
      'Basic zealot': {
-         cardBack: 'https://github.com/brandonrjguth/Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-zealot-back.png', // Assuming a basic back exists
+         cardBack: 'https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/monster-ability-cards/jaws-of-the-lion/zealot/jl-basic-zealot-back.png', // Assuming a basic back exists
          cards: [
              // Add basic zealot card paths here if they exist and are needed
          ]
@@ -354,7 +354,7 @@ function createDeckHTML(deckId, deckState) {
                 <div class="pile combined-pile">
                     <div class="pile-counters">
                         <strong>Draw (<span id="draw-count-${deckId}">${deckState.drawPileCount}</span>)</strong>
-                        <button data-action="shuffle"><img class="icon" src="https://github.com/brandonrjguth/Public/imgs/icons/shuffle.png"></button>
+                        <button data-action="shuffle"><img class="icon" src="https://github.com/brandonrjguth/GloomHaven-Helper-Static/blob/main/Public/imgs/icons/shuffle.png"></button>
                         <strong>Discard (<span id="discard-count-${deckId}">${deckState.discardPileCount}</span>)</strong>
                     </div>
                     <div class="card-display" id="combined-card-display-${deckId}" data-action="draw">
