@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Register service worker with proper scope
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+        navigator.serviceWorker.register('service-worker.js', { scope: '/' })
             .then(reg => {
                 console.log('Service worker registered with scope:', reg.scope);
                 
