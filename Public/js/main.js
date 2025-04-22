@@ -222,6 +222,51 @@ class Deck {
 const decks = {}; // Object to hold client-side Deck instances
 let playerCount = 0; // Track player deck count
 
+// --- State Persistence ---
+const STATE_KEY = 'gloomhaven-decks-state';
+
+function saveState() {
+    const state = {
+        decks: {},
+        playerCount
+    };
+    
+    for (const [id, deck] of Object.entries(decks)) {
+        state.decks[id] = deck.getState();
+    }
+    
+    localStorage.setItem(STATE_KEY, JSON.stringify(state));
+}
+
+function loadState() {
+    const savedState = localStorage.getItem(STATE_KEY);
+    if (!savedState) return false;
+    
+    try {
+        const state = JSON.parse(savedState);
+        playerCount = state.playerCount;
+        
+        for (const [id, deckState] of Object.entries(state.decks)) {
+            const deck = new Deck(deckState.type);
+            // Restore deck state
+            deck.drawPile = deckState.drawPileCount > 0 ? Array(deckState.drawPileCount).fill(deckState.cardBackImg) : [];
+            deck.discardPile = deckState.discardPileCount > 0 ? Array(deckState.discardPileCount).fill(deckState.cardBackImg) : [];
+            deck.activeBlessings = deckState.activeBlessings;
+            deck.activeCurses = deckState.activeCurses;
+            deck.lastDrawnCard = deckState.lastDrawnCard;
+            deck.shufflePending = deckState.needsShuffle;
+            
+            decks[id] = deck;
+            const deckHTML = createDeckHTML(id, deck.getState());
+            decksContainer.insertAdjacentHTML('beforeend', deckHTML);
+        }
+        return true;
+    } catch (e) {
+        console.error('Failed to load state:', e);
+        return false;
+    }
+}
+
 // --- Monster Ability Card Data (Client-side) ---
 // This data was previously read from the file system server-side.
 // Now it's hardcoded here. In a larger app, this might come from a static JSON file.
@@ -498,6 +543,8 @@ function addPlayerDeck() {
     const deckId = `player${playerCount}`;
     decks[deckId] = new Deck('player');
     const deckHTML = createDeckHTML(deckId, decks[deckId].getState());
+    decksContainer.insertAdjacentHTML('beforeend', deckHTML);
+    saveState();
     decksContainer.insertAdjacentHTML('beforeend', deckHTML);
     updateDeckUI(deckId, decks[deckId].getState()); // Initial UI update
 
